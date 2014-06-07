@@ -4,6 +4,10 @@
  * 43081j
  * License: MIT, see LICENSE
  */
+
+var BLAKE2s = require('lib/blake2s').BLAKE2s;
+var Crypto = require('lib/cryptojs').Crypto;
+
 (function() {
 	'use strict';
 	/*
@@ -197,8 +201,8 @@
 			}
 			return (new Buffer(data)).toString();
 		} else {
-			for(var i = offset; i < (offset + length); i++) {
-				str += String.fromCharCode(this.getUint8(i));
+			for(var j = offset; j < (offset + length); j++) {
+				str += String.fromCharCode(this.getUint8(j));
 			}
 			if(raw) {
 				return str;
@@ -423,7 +427,7 @@
 				size = view.getUint16(5, true);
 			self.rd.read(size, offset, function(err, data) {
 				var view = new DataView(data);
-				var entry = new RarEntry;
+				var entry = new RarEntry(0);
 				entry.partial = ((flags & 0x01) !== 0 || (flags & 0x02) !== 0);
 				entry.continuesFrom = ((flags & 0x01) !== 0);
 				entry.continues = ((flags & 0x02) !== 0);

@@ -1,8 +1,8 @@
 {
   "name": "rarjs",
   "version": "0.0.2",
-  "author": "43081j",
-  "description": "Pure-javascript RAR archive reader using AJAX, File API and local files.",
+  "author": "effervescentia",
+  "description": "Pure-javascript RAR archive reader using AJAX, File API and local files. Modified from original by 43081j.",
   "main": "./dist/rar.js",
   "repository": {
     "type": "git",
